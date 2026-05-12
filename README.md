@@ -1,145 +1,105 @@
 # Image Filter Studio - C++ OOP Portfolio Project
 
-This repository contains a console-based C++ Image Filter Studio developed for the CS1004 Object Oriented Programming course at the **National University of Computer & Emerging Sciences**. The application allows users to load real JPG or PNG images, apply a pipeline of custom filters, and save the processed results back to disk.
+This console-based C++ Image Filter Studio was developed for the CS1004 Object Oriented Programming course at the National University of Computer & Emerging Sciences. It allows users to load real JPG or PNG images, process them through a pipeline of filters, and save the results back to disk.
 
-## ## Project Overview
+## Project Overview
 
-The "Image Filter Studio" is designed to demonstrate core Object-Oriented Programming (OOP) concepts, including encapsulation, inheritance, polymorphism, and dynamic memory management.
+The application serves as an OOP portfolio, demonstrating every concept from raw pointers and dynamic memory to polymorphism and virtual functions.
 
-### ### Key Features
-
-* 
-**Real Image I/O**: Read and write JPG and PNG files using the `stb_image` and `stb_image_write` libraries.
-
+### Core Features
 
 * 
-**Pixel Grid Management**: Images are represented as a 2D grid of `Pixel` objects dynamically allocated on the heap.
+**Real Image I/O**: Loads and decodes JPG/PNG pixels into a grid and writes them back using the `stb_image` library.
 
 
 * 
-**Filter Pipeline**: Apply multiple filters sequentially (e.g., Grayscale followed by Brightness Adjust).
+**Dynamic Pixel Grid**: Images are stored as a 2D array of `Pixel` objects on the heap using `Pixel`.
 
 
 * 
-**User Roles**: Distinct functionalities for **Admins** (catalog management, customer oversight) and **Customers** (image processing, history viewing).
+**Filter Pipeline**: Chains multiple filters together, where each filter runs on the output of the previous one.
 
 
 * 
-**ASCII Preview**: Real-time text-art approximation of the image within the console.
+**ASCII Preview**: Generates a text-art approximation of the image in the console using brightness-to-character mapping.
+
+
+* 
+**User Management**: Includes an Admin role for catalog management and a Customer role for image processing.
 
 
 
 ---
 
-## ## Filter Catalog
+## Filter Catalog
 
-The project implements 10 unique filters across three categories:
+The studio includes 10 mandatory filters categorized as follows:
 
-| Category | Filters |
-| --- | --- |
-| **Pixel Transform** | Grayscale, Invert/Negative, Brightness Adjust, Contrast Stretch, Channel Isolation (R, G, B) 
-
- |
-| **Spatial Filter** | Box Blur ($3 \times 3$) 
+| Category | Filter Name | Description |
+| --- | --- | --- |
+| **Pixel Transform** | Grayscale, Invert, Brightness Adjust, Contrast Stretch, RGB Channel Filters | Manipulates individual pixel values.
 
  |
-| **Geometric** | Flip Horizontal, Flip Vertical 
+| **Spatial Filter** | Box Blur ($3 \times 3$) | Averages a pixel with its 8 neighbors while handling edges.
+
+ |
+| **Geometric** | Flip Horizontal, Flip Vertical | Mirrors the image by swapping pixel rows or columns.
 
  |
 
 ---
 
-## ## Technical Requirements
+## Technical Specifications
 
 * 
 **Language**: C++ 
 
 
-* **Compiler**: g++ (GCC)
+* **Compiler**: g++
 * 
-**Libraries**: `stb_image.h` and `stb_image_write.h` (included in project folder) 
+**OOP Concepts**: Abstract base classes, pure virtual methods, friend classes, operator overloading (`+`, `<<`), and deep copy constructors.
+
+
+* 
+**Data Persistence**: Uses `.txt` files to store customer data, filter catalogs, and session history.
 
 
 
 ---
 
-## ## Installation and Running
+## Installation and Execution
 
-### ### 1. Clone or Download
+### 1. Download and Extract
 
-Download the project repository as a `.zip` file and extract the contents to your local machine.
+Download the project zip file and extract it into a folder. Ensure `stb_image.h` and `stb_image_write.h` are in the project directory.
 
-### ### 2. Compile
+### 2. Compile
 
-Open your terminal/command prompt in the project directory and run the following command to compile all source files:
+Open your terminal in the project directory and run:
 
 ```bash
 g++ *.cpp -o ImageFilterStudio
 
 ```
 
-### ### 3. Run
+### 3. Run
 
-Execute the compiled program:
+Execute the program:
 
-**Windows:**
-
-```bash
-ImageFilterStudio.exe
-
-```
-
-**Linux/Mac:**
-
-```bash
-./ImageFilterStudio
-
-```
+* **Windows**: `ImageFilterStudio.exe`
+* **Linux/Mac**: `./ImageFilterStudio`
 
 ---
 
-## ## Usage Guide
-
-1. 
-**Login**: Use the Admin credentials (hardcoded) or register as a new Customer.
-
-
-2. 
-**Load Image**: Provide the full system path to a `.jpg` or `.png` file.
-
-
-3. 
-**Build Pipeline**: Select filter IDs to add them to your session.
-
-
-4. 
-**Process**: Apply the pipeline to see the ASCII preview after each step.
-
-
-5. 
-**Save**: Export the final result as a new PNG file, which will be named using your CNIC and a timestamp.
-
-
-
----
-
-## ## OOP Concepts Demonstrated
+## Submission Requirements
 
 * 
-**Encapsulation**: Private data members in `Pixel` and `Image` classes with controlled access via getters/setters.
+**Deadline**: 03rd-May-2026, 5:00 PM.
 
 
 * 
-**Inheritance**: `Admin` and `Customer` classes extending a base `User` class.
+**Format**: Submit a .zip file named `i21-XXXX_Name_Section.zip`.
 
 
 * 
-**Polymorphism**: Abstract `Filter` base class with `virtual` methods used to process different filter types at runtime.
-
-
-* 
-**Operator Overloading**: Custom `operator+` for pixel blending and `operator<<` for ASCII rendering.
-
-
-* 
-**Friend Classes**: `FilterSession` is a friend of `Image` to allow direct pixel grid manipulation.
+**Policy**: Strict plagiarism rules apply; non-running code receives zero marks.
